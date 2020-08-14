@@ -54,10 +54,12 @@
     <Compile Include="Models\Authentication\Request.cs" />
     <Compile Include="Models\Authentication\Response.cs" />
     <Compile Include="Models\Customer\Customer.cs" />
+    <Compile Include="Models\Customer\Metadata.cs" />
     <Compile Include="Models\Customer\Properties.cs" />
     <Compile Include="Models\Order\Error.cs" />
     <Compile Include="Models\Order\InvalidateRequest.cs" />
     <Compile Include="Models\Order\MassRequest.cs" />
+    <Compile Include="Models\Order\Metadata.cs" />
     <Compile Include="Models\Order\Order.cs" />
     <Compile Include="Models\Order\Purchase.cs" />
     <Compile Include="Models\Order\Request.cs" />
@@ -67,6 +69,7 @@
     <Compile Include="Models\Product\CreateGroupRequest.cs" />
     <Compile Include="Models\Product\GroupDetailResponse.cs" />
     <Compile Include="Models\Product\GroupResponse.cs" />
+    <Compile Include="Models\Product\Metadata.cs" />
     <Compile Include="Models\Product\Product.cs" />
     <Compile Include="Models\Product\ProductGroup.cs" />
     <Compile Include="Models\Product\ProductGroupDetail.cs" />
@@ -79,7 +82,35 @@
     <Compile Include="Models\Product\Spec.cs" />
     <Compile Include="Models\Product\UpdateProduct.cs" />
     <Compile Include="Models\Product\UpdateRequest.cs" />
+    <Compile Include="Models\Review\Account.cs" />
+    <Compile Include="Models\Review\AddRequest.cs" />
+    <Compile Include="Models\Review\Badge.cs" />
+    <Compile Include="Models\Review\BottomLine.cs" />
+    <Compile Include="Models\Review\BottomLineResponse.cs" />
+    <Compile Include="Models\Review\IdProperty.cs" />
+    <Compile Include="Models\Review\ImageMeta.cs" />
+    <Compile Include="Models\Review\PaginatedResponse.cs" />
+    <Compile Include="Models\Review\Product.cs" />
+    <Compile Include="Models\Review\ProductApp.cs" />
+    <Compile Include="Models\Review\ProductList.cs" />
+    <Compile Include="Models\Review\ProductMeta.cs" />
+    <Compile Include="Models\Review\Response.cs" />
+    <Compile Include="Models\Review\AddResponse.cs" />
+    <Compile Include="Models\Review\Review.cs" />
+    <Compile Include="Models\Review\ReviewByUserResponse.cs" />
+    <Compile Include="Models\Review\ReviewEntry.cs" />
+    <Compile Include="Models\Review\ReviewImage.cs" />
+    <Compile Include="Models\Review\ReviewListResponse.cs" />
+    <Compile Include="Models\Review\ReviewPagination.cs" />
+    <Compile Include="Models\Review\ReviewProduct.cs" />
+    <Compile Include="Models\Review\ReviewSummary.cs" />
+    <Compile Include="Models\Review\ReviewUser.cs" />
+    <Compile Include="Models\Review\SocialNetworkLinks.cs" />
+    <Compile Include="Models\Review\User.cs" />
+    <Compile Include="Models\Review\ViewResponse.cs" />
+    <Compile Include="Models\Review\VoteResponse.cs" />
     <Compile Include="Models\Shared\AuthorizedRequest.cs" />
+    <Compile Include="Models\Shared\iAuthorizedRequest.cs" />
     <Compile Include="Models\Shared\CustomProperty.cs" />
     <Compile Include="Models\Shared\EnvelopeException.cs" />
     <Compile Include="Models\Shared\ResponseEnvelope.cs" />
@@ -91,6 +122,7 @@
     <Compile Include="Services\Group.cs" />
     <Compile Include="Services\Product.cs" />
     <Compile Include="Services\Purchase.cs" />
+    <Compile Include="Services\Review.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

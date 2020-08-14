@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Yotpo.Light.Models.Shared
+namespace Yotpo.Light.Models.Review
 {
-    public class AuthorizedRequest: iAuthorizedRequest
+    public class IdProperty
     {
-        public string utoken { get; set; }
+        public Int64 id { get; set; }
     }
 }

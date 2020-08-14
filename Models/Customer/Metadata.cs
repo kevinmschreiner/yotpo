@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Yotpo.Light.Models.Shared
+namespace Yotpo.Light.Models.Customer
 {
-    public class AuthorizedRequest: iAuthorizedRequest
+    public class Metadata : Customer
     {
-        public string utoken { get; set; }
     }
 }

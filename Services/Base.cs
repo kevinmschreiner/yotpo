@@ -174,6 +174,29 @@ namespace Yotpo.Light
             return null;
         }
 
+        public HttpContent GetContent(string url)
+        {
+            if (this.Authenticate())
+            {
+                var client = this.GetHttpClient();
+                if (client != null)
+                {
+                    var result = client.GetAsync(this.ApplyParameters(url)).Result;
+                    if (result != null)
+                    {
+                        if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            return result.Content;
+                        } else
+                        {
+                            throw new EnvelopeException(new ResponseStatus() { code = (int)result.StatusCode, message = result.ReasonPhrase });
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
 
         private string ApplyParameters(string url)
         {
