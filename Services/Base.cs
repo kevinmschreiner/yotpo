@@ -10,7 +10,6 @@ namespace Yotpo.Light
 {
     public class Base
     {
-        
         private const string url = "https://api.yotpo.com/";
         private const string authurl = "oauth/token";
         private Models.Authentication.Response authentication;
@@ -44,7 +43,7 @@ namespace Yotpo.Light
                         ((iAuthorizedRequest)body).utoken = this.UToken;
                     }
 
-                    var result = client.PostAsJsonAsync(this.ApplyParameters(url), body).Result;
+                    var result = client.PostAsync(this.ApplyParameters(url), ToJsonPayload(body)).Result;
                     if (result != null)
                     {
                         var envelope = ResponseEnvelope.from(result);
@@ -73,7 +72,7 @@ namespace Yotpo.Light
                         ((iAuthorizedRequest)body).utoken = this.UToken;
                     }
 
-                    var result = client.PutAsJsonAsync(this.ApplyParameters(url), body).Result;
+                    var result = client.PutAsync(this.ApplyParameters(url), ToJsonPayload(body)).Result;
                     if (result != null)
                     {
                         var envelope = ResponseEnvelope.from(result);
@@ -105,7 +104,7 @@ namespace Yotpo.Light
                     }
 
                     var httpReq = new HttpRequestMessage(HttpMethod.Delete, this.ApplyParameters(url));
-                    httpReq.Content = new StringContent(JsonConvert.SerializeObject(body));
+                    httpReq.Content = ToJsonPayload(body);
                     var result = client.SendAsync(httpReq).Result;
                     if (result != null)
                     {
@@ -213,9 +212,8 @@ namespace Yotpo.Light
                     client.BaseAddress = new Uri(url);
                     client.DefaultRequestHeaders.Accept.Clear();
                     client.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
-
                     var request = new Models.Authentication.Request() { client_id = this.appKey, client_secret = this.secretKey, grant_type = "client_credentials" };
-                    var response = client.PostAsJsonAsync(authurl, request).Result;
+                    var response = client.PostAsync(authurl, ToJsonPayload(request)).Result;
                     switch (response.StatusCode)
                     {
                         case System.Net.HttpStatusCode.OK:
@@ -243,6 +241,11 @@ namespace Yotpo.Light
             {
                 return true;
             }
+        }
+
+        private StringContent ToJsonPayload(object data)
+        {
+            return new StringContent(JsonConvert.SerializeObject(data), System.Text.Encoding.UTF8, "application/json");
         }
     }
 }

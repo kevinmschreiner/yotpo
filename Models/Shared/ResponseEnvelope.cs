@@ -4,6 +4,7 @@ using System.Net;
 using System.Net.Http;
 using System.Security.Cryptography;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace Yotpo.Light.Models.Shared
 {
@@ -16,7 +17,7 @@ namespace Yotpo.Light.Models.Shared
 
         public static ResponseEnvelope from(HttpResponseMessage response)
         {
-            return response.Content.ReadAsAsync<ResponseEnvelope>().Result;
+            return JsonConvert.DeserializeObject<ResponseEnvelope>(response.Content.ReadAsStringAsync().Result);
         }
     }
     

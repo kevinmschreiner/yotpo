@@ -5,6 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Yotpo.Light.Models.Shared;
+using Newtonsoft.Json;
 
 namespace Yotpo.Light.Models.Review
 {
@@ -14,7 +15,7 @@ namespace Yotpo.Light.Models.Review
 
         public static ReviewListResponse from(HttpContent content)
         {
-            return content.ReadAsAsync<ReviewListResponse>().Result;
+            return JsonConvert.DeserializeObject<ReviewListResponse>(content.ReadAsStringAsync().Result);
         }
     }
 }
