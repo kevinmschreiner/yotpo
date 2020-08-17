@@ -42,5 +42,18 @@ namespace Yotpo.Light.Services
             if (result.status.code == 200) return true;
             return false;
         }
+
+        public bool Add(string return_email_address, string result_callback_url, string key, UpdateProduct product)
+        {
+            var request = new UpdateRequest();
+            request.result_callback_url = result_callback_url;
+            request.return_email_address = return_email_address;
+
+            request.Add(key, product);
+
+            var result = base.Post("apps/{{APPKEY}}/products/mass_create", request);
+            if (result.status.code == 200) return true;
+            return false;
+        }
     }
 }
