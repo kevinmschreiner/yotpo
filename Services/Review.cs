@@ -14,6 +14,9 @@ namespace Yotpo.Light.Services
     public class Review : Base
     {
         public Review(string appKey, string secretKey) : base(appKey, secretKey) { }
+        public Review(string appKey, string secretKey, iLogHandler handler) : base(appKey, secretKey) {
+            base.Attach(handler);
+        }
 
         public bool Add(AddRequest request)
         {

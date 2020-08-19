@@ -26,9 +26,9 @@ namespace Yotpo.Light.Models.Shared
             public string message { get; set; }
         }
 
-        public static ResponseEnvelope from(HttpResponseMessage response)
+        public static ResponseEnvelope from(string body)
         {
-            var r = JsonConvert.DeserializeObject<ActualResponseEnvelop>(response.Content.ReadAsStringAsync().Result);
+            var r = JsonConvert.DeserializeObject<ActualResponseEnvelop>(body);
             var ar = new ResponseEnvelope();
             ar.status = r.status;
             ar.response = r.response;

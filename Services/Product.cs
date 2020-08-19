@@ -13,6 +13,10 @@ namespace Yotpo.Light.Services
     public class Product:Base
     {
         public Product(string appKey, string secretKey) : base(appKey, secretKey) { }
+        public Product(string appKey, string secretKey, iLogHandler handler) : base(appKey, secretKey)
+        {
+            base.Attach(handler);
+        }
         public Models.Product.ProductListResponse Retrieve(int? count = null, int? page = null)
         {
             string url = "v1/apps/{{APPKEY}}/products?utoken={{UTOKEN}}";

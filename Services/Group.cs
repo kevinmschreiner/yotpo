@@ -10,7 +10,10 @@ namespace Yotpo.Light.Services
     public class Group : Base
     {
         public Group(string appKey, string secretKey) : base(appKey, secretKey) { }
-
+        public Group(string appKey, string secretKey, iLogHandler handler) : base(appKey, secretKey)
+        {
+            base.Attach(handler);
+        }
         public bool Create(string name)
         {
             var request = new Models.Product.CreateGroupRequest

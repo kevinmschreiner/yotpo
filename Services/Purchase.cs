@@ -11,7 +11,10 @@ namespace Yotpo.Light.Services
     public class Purchase:Base
     {
         public Purchase(string appKey, string secretKey) : base(appKey,secretKey) { }
-
+        public Purchase(string appKey, string secretKey, iLogHandler handler) : base(appKey, secretKey)
+        {
+            base.Attach(handler);
+        }
         public bool Create(Models.Order.Request order)
         {
             var result = base.Post("apps/{{APPKEY}}/purchases/", order);

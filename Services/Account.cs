@@ -7,6 +7,10 @@ namespace Yotpo.Light.Services
     public class Account:Base
     {
         public Account(string appKey,string secretKey) : base(appKey, secretKey) { }
+        public Account(string appKey, string secretKey, iLogHandler handler) : base(appKey, secretKey)
+        {
+            base.Attach(handler);
+        }
         public bool Set(string shop_domain, string platform_type_id)
         {
             var request = new Models.Account.Request()
