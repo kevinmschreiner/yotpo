@@ -126,5 +126,8 @@
     <None Include="packages.config" />
     <None Include="Yotpo.Light.nuspec" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,12 +3,13 @@
   <metadata>
     <!-- Required elements-->
     <id>Yotpo.Light</id>
-    <version>0.0.4.0</version>
+    <version>0.0.5.0</version>
     <description>A light weight Yotpo API client.</description>
     <authors>Kevin M Schreiner</authors>
     <owners>Kevin M Schreiner</owners>
     <license type="expression">MIT</license>
     <repository type="git" url="https://github.com/kevinmschreiner/yotpo.git" branch="master" commit="6d770aad8f9f14e3e8b7717ccaae5a0084d39671" />
+    <icon>icon.png</icon>
     <dependencies>
       <group targetFramework=".NETFramework4.6.1">
         <dependency id="Newtonsoft.Json" version="6.0.4" />
@@ -18,5 +19,6 @@
   <files>
     <file src="bin\release\yotpo.light.dll" target="lib\net461"/>
     <file src="bin\release\yotpo.light.pdb" target="lib\net461"/>
+    <file src="icon.png" target=""/>
   </files>
 </package>
